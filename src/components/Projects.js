@@ -10,12 +10,21 @@ import TrackVisibility from 'react-on-screen';
 
 export const Projects = () => {
 
+  const handleClick = event => {
+    console.log('Anchor element clicked');
+    console.log(event.currentTarget);
+  }
+
   const projects = [
     {
+      
+      
       title: "Restuarant Startup",
       description: "Landing Page Design",
       imgUrl: projImg2,
-      onclick:"location.href='pageurl.html';"
+      
+      
+      
 
     },
     {
@@ -67,13 +76,20 @@ export const Projects = () => {
                       <Nav.Link eventKey="third">Tab 3</Nav.Link>
                     </Nav.Item>
                   </Nav>
-                  <Tab.Content id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
+                  <Tab.Content  id="slideInUp" className={isVisible ? "animate__animated animate__slideInUp" : ""}>
                     <Tab.Pane eventKey="first">
                       <Row>
+                        <a
+                        onClick={handleClick} 
+                        href="https://sensational-pudding-c8c38d.netlify.app"
+                        target="_blank"
+                        rel="noreferrer"
+                        color="white"
+                        >Demo</a>
                         {
                           projects.map((project, index) => {
                             return (
-                              <ProjectCard
+                              <ProjectCard 
                                 key={index}
                                 {...project}
                                 />
